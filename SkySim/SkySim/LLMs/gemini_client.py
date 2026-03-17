@@ -14,7 +14,7 @@ class GeminiClient:
         """
         try:
             if not api_key:
-                env_path = '/home/aditya/SkySim/.env'
+                env_path = os.path.expanduser('~/SkySim/.env')
                 load_dotenv(dotenv_path=env_path)
                 api_key = os.getenv('GEMINI_API_KEY') or os.getenv('API_KEY')
 
@@ -43,7 +43,7 @@ class GeminiClient:
         self.logger = logger
         self.model_name = model_name
         
-        env_path = '/home/aditya/SkySim/.env'
+        env_path = os.path.expanduser('~/SkySim/.env')
         loaded = load_dotenv(dotenv_path=env_path)
         
         self._log(f"DEBUG: Loading .env from {env_path}, Success: {loaded}")

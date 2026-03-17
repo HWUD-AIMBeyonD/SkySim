@@ -20,7 +20,7 @@ except ImportError:
     if os.path.exists(possible_venv):
         sys.path.append(possible_venv)
     
-    hardcoded_venv = '/home/aditya/SkyScript/venv/lib/python3.12/site-packages'
+    hardcoded_venv = os.path.expanduser('~/SkySim/venv/lib/python3.12/site-packages')
     if os.path.exists(hardcoded_venv) and hardcoded_venv not in sys.path:
         sys.path.append(hardcoded_venv)
 
