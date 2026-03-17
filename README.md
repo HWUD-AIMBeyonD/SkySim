@@ -10,7 +10,7 @@
 
 - Before running the scripts run the following command:
     ```
-    export GZ_SIM_RESOURCE_PATH="/home/$USER/SkyScript/skyscript_sim/simulator_files/gazebo/"
+    export GZ_SIM_RESOURCE_PATH="/home/$USER/SkyScript/SkySim/simulator_files/gazebo/"
     ```
 
 - Clone the package using the command:
@@ -25,7 +25,7 @@
     colcon build
     source install/setup.bash
     export PYTHONPATH=$PYTHONPATH:$(pwd)/venv/lib/python3.12/site-packages
-    ros2 launch skyscript_sim skyscript_sim_launch.py
+    ros2 launch SkySim SkySim_launch.py
     ```
 
 ### Multi-Drone Simulation and Keyboard Control

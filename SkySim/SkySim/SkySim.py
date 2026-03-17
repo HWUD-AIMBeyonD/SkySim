@@ -1,5 +1,5 @@
 def main():
-    print('Hi from skyscript_sim.')
+    print('Hi from SkySim.')
 
 
 if __name__ == '__main__':

@@ -169,7 +169,7 @@ class SwarmControllerNode(Node):
             subprocess.Popen(cmd_bridge)
             
             cmd_control = [
-                'ros2', 'run', 'skyscript_sim', 'control_services',
+                'ros2', 'run', 'SkySim', 'control_services',
                 '--ros-args',
                 '-p', f'robot_prefix:=/{new_drone_name}',
                 '-r', f'/cmd_vel:=/{new_drone_name}/cmd_vel_teleop'

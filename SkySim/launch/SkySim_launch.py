@@ -9,7 +9,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
-    pkg_skyscript_sim = get_package_share_directory('skyscript_sim')
+    pkg_SkySim = get_package_share_directory('SkySim')
 
     gz_model_path = os.getenv('GZ_SIM_RESOURCE_PATH')
 
@@ -43,12 +43,12 @@ def generate_launch_description():
     bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
-        arguments=['--ros-args', '-p', f'config_file:={os.path.join(pkg_skyscript_sim, "config", "ros_gz_crazyflie_bridge.yaml")}'],
+        arguments=['--ros-args', '-p', f'config_file:={os.path.join(pkg_SkySim, "config", "ros_gz_crazyflie_bridge.yaml")}'],
         output='screen'
     )
 
     control_services_1 = Node(
-        package='skyscript_sim',
+        package='SkySim',
         executable='control_services',
         name='control_services_1',
         output='screen',
@@ -57,7 +57,7 @@ def generate_launch_description():
     )
 
     control_services_2 = Node(
-        package='skyscript_sim',
+        package='SkySim',
         executable='control_services',
         name='control_services_2',
         output='screen',
@@ -66,7 +66,7 @@ def generate_launch_description():
     )
 
     control_services_3 = Node(
-        package='skyscript_sim',
+        package='SkySim',
         executable='control_services',
         name='control_services_3',
         output='screen',
@@ -109,35 +109,35 @@ def generate_launch_description():
     )
 
     llm_planner = Node(
-        package='skyscript_sim',
+        package='SkySim',
         executable='llm_planner',
         name='llm_planner',
         output='screen'
     )
 
     swarm_controller = Node(
-        package='skyscript_sim',
+        package='SkySim',
         executable='swarm_controller',
         name='swarm_controller',
         output='screen'
     )
 
     stream_positions = Node(
-        package='skyscript_sim',
+        package='SkySim',
         executable='stream_positions',
         name='stream_positions',
         output='screen'
     )
 
     translator = Node(
-        package='skyscript_sim',
+        package='SkySim',
         executable='translator',
         name='translator',
         output='screen'
     )
 
     visualizer = Node(
-        package='skyscript_sim',
+        package='SkySim',
         executable='visualizer',
         name='visualizer',
         output='screen'

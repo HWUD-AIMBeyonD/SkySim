@@ -4,7 +4,7 @@ from setuptools import setup
 
 from setuptools import find_packages, setup
 
-package_name = 'skyscript_sim'
+package_name = 'SkySim'
 
 setup(
     name=package_name,
@@ -34,13 +34,13 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'skyscript_sim = skyscript_sim.skyscript_sim:main',
-            'control_services = skyscript_sim.control_services:main',
-            'llm_planner = skyscript_sim.llm_planner_node:main',
-            'swarm_controller = skyscript_sim.swarm_controller_node:main',
-            'stream_positions = skyscript_sim.stream_positions_node:main',
-            'translator = skyscript_sim.translator_node:main',
-            'visualizer = skyscript_sim.visualizer_node:main'
+            'SkySim = SkySim.SkySim:main',
+            'control_services = SkySim.control_services:main',
+            'llm_planner = SkySim.llm_planner_node:main',
+            'swarm_controller = SkySim.swarm_controller_node:main',
+            'stream_positions = SkySim.stream_positions_node:main',
+            'translator = SkySim.translator_node:main',
+            'visualizer = SkySim.visualizer_node:main'
         ],
     },
 )
