@@ -1,5 +1,5 @@
 """
-Simulation Control Tab for SkyScript GUI
+Simulation Control Tab for SkySim GUI
 Provides controls for drone spawning, APF toggle, LLM commands, and test formations.
 """
 from PyQt6.QtWidgets import (

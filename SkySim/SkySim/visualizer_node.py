@@ -113,7 +113,7 @@ def run_dash_app():
     app = dash.Dash(__name__)
     
     app.layout = html.Div([
-        html.H1("SkyScript Swarm Monitor", style={'textAlign': 'center'}),
+        html.H1("SkySim Swarm Monitor", style={'textAlign': 'center'}),
         
         dcc.Graph(id='live-distance-graph'),
         

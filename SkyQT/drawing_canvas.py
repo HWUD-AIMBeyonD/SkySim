@@ -1,5 +1,5 @@
 """
-Drawing Canvas Widget for SkyScript GUI
+Drawing Canvas Widget for SkySim GUI
 Allows users to draw drone formation patterns visually.
 """
 from PyQt6.QtWidgets import (

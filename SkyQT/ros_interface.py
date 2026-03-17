@@ -1,5 +1,5 @@
 """
-ROS 2 Interface for SkyScript GUI
+ROS 2 Interface for SkySim GUI
 Provides communication with the simulation via subprocess calls to ros2 CLI.
 Implements a Command Queue to serialize requests and prevent timeouts/resource exhaustion.
 Implements a persistent Listener for real-time updates.
@@ -174,13 +174,13 @@ class ROS2Interface:
         safe_cmd = command.replace("'", "'\'")
         return self._queue_command(
             f"User Command: {command}",
-            ['ros2', 'topic', 'pub', '--once', '/skyscript/user_command', 'std_msgs/msg/String', f"{{data: '{safe_cmd}'}}"]
+            ['ros2', 'topic', 'pub', '--once', '/skysim/user_command', 'std_msgs/msg/String', f"{{data: '{safe_cmd}'}}"]
         )
 
     def send_test_command(self, command: str) -> bool:
         return self._queue_command(
             f"Test Command: {command}",
-            ['ros2', 'topic', 'pub', '--once', '/skyscript/test_command', 'std_msgs/msg/String', f"{{data: '{command}'}}"]
+            ['ros2', 'topic', 'pub', '--once', '/skysim/test_command', 'std_msgs/msg/String', f"{{data: '{command}'}}"]
         )
 
     def set_apf_enabled(self, enabled: bool) -> bool:

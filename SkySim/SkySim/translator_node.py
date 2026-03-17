@@ -29,18 +29,18 @@ class TranslatorNode(Node):
 
         self.create_subscription(
             String,
-            '/skyscript/user_command',
+            '/skysim/user_command',
             self.command_callback,
             10
         )
 
         self.prompt_publisher = self.create_publisher(
             String,
-            '/skyscript/llm_prompt',
+            '/skysim/llm_prompt',
             10
         )
         
-        self.get_logger().info('Translator Node Started. Waiting for /skyscript/user_command...')
+        self.get_logger().info('Translator Node Started. Waiting for /skysim/user_command...')
 
     def position_callback(self, msg, drone_name):
         self.positions[drone_name] = [msg.x, msg.y, msg.z]

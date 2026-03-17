@@ -34,11 +34,11 @@ class LLMPlannerNode(Node):
         self.goal_tolerance = 0.1
         
         self.goals_publisher = self.create_publisher(PoseArray, '/swarm/desired_goals', 10)
-        self.latency_publisher = self.create_publisher(Float32, '/skyscript/llm_latency', 10)
+        self.latency_publisher = self.create_publisher(Float32, '/skysim/llm_latency', 10)
 
         self.subscription_prompt = self.create_subscription(
             String,
-            '/skyscript/llm_prompt',
+            '/skysim/llm_prompt',
             self.prompt_callback,
             10
         )
@@ -46,7 +46,7 @@ class LLMPlannerNode(Node):
 
         self.subscription_test_command = self.create_subscription(
             String,
-            '/skyscript/test_command',
+            '/skysim/test_command',
             self.test_command_callback,
             10
         )
@@ -64,7 +64,7 @@ class LLMPlannerNode(Node):
         else:
             self.get_logger().warn("Gemini Client initialized without API Key. LLM features will be disabled.")
 
-        self.get_logger().info('LLM Planner Node has started. Waiting for prompts on /skyscript/llm_prompt and /skyscript/test_command')
+        self.get_logger().info('LLM Planner Node has started. Waiting for prompts on /skysim/llm_prompt and /skysim/test_command')
 
         # Ensure log directory exists
         os.makedirs(os.path.dirname(LATENCY_LOG_FILE), exist_ok=True)

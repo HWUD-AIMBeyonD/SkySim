@@ -10,18 +10,18 @@
 
 - Before running the scripts run the following command:
     ```
-    export GZ_SIM_RESOURCE_PATH="/home/$USER/SkyScript/SkySim/simulator_files/gazebo/"
+    export GZ_SIM_RESOURCE_PATH="/home/$USER/SkySim/SkySim/simulator_files/gazebo/"
     ```
 
 - Clone the package using the command:
     ```
-    git clone https://github.com/HWUD-AIMBeyonD/SkyScript.git
+    git clone https://github.com/HWUD-AIMBeyonD/SkySim.git
     ```
 
 
-- Then run the skyscript simulation package using the command:
+- Then run the SkySim simulation package using the command:
     ```bash
-    cd ~/SkyScript
+    cd ~/SkySim
     colcon build
     source install/setup.bash
     export PYTHONPATH=$PYTHONPATH:$(pwd)/venv/lib/python3.12/site-packages
@@ -83,25 +83,25 @@ To send a natural language command to the LLM that will generate drone waypoints
 
 Run an LLM command using:
 ```bash
-ros2 topic pub --once /skyscript/user_command std_msgs/msg/String "data: 'Form a vertical line with 1 meter spacing at a height of 1.5m'"
+ros2 topic pub --once /skysim/user_command std_msgs/msg/String "data: 'Form a vertical line with 1 meter spacing at a height of 1.5m'"
 ```
 *(Remember to set your `GEMINI_API_KEY` environment variable for the LLM to work)*
 
 ### Hardcoded Test Commands
-For debugging or testing specific scenarios without the LLM, you can use the `/skyscript/test_command` topic. These commands bypass the LLM and directly trigger predefined waypoint generation.
+For debugging or testing specific scenarios without the LLM, you can use the `/skysim/test_command` topic. These commands bypass the LLM and directly trigger predefined waypoint generation.
 
 Run a hardcoded test command using:
 *   **Triangle Formation:**
     ```bash
-    ros2 topic pub --once /skyscript/test_command std_msgs/msg/String "data: 'triangle'"
+    ros2 topic pub --once /skysim/test_command std_msgs/msg/String "data: 'triangle'"
     ```
 *   **Unsafe Formation (to test APF):**
     ```bash
-    ros2 topic pub --once /skyscript/test_command std_msgs/msg/String "data: 'unsafe'"
+    ros2 topic pub --once /skysim/test_command std_msgs/msg/String "data: 'unsafe'"
     ```
 *   **Safe Hover Formation (fallback/default):**
     ```bash
-    ros2 topic pub --once /skyscript/test_command std_msgs/msg/String "data: 'safe_hover'"
+    ros2 topic pub --once /skysim/test_command std_msgs/msg/String "data: 'safe_hover'"
     ```
 
 ## Application GUI

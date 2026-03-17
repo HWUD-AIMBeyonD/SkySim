@@ -25,7 +25,7 @@ setup(
     zip_safe=True,
     maintainer='Aditya',
     maintainer_email='as2397@hw.ac.uk',
-    description='Crazyflie control simulation package for SkyScript project built for AimBeyonD lab',
+    description='Crazyflie control simulation package for SkySim project built for AimBeyonD lab',
     license='MIT',
     extras_require={
         'test': [
